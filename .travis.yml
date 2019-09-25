@@ -8,6 +8,11 @@ jobs:
     # Define the release stage that runs semantic-release
     - stage: release
       node_js: lts/*
+      cache:
+        directories:
+          - node_modules
+      notifications:
+        email: false
       # Advanced: optionally overwrite your default `script` step to skip the tests
       script:
         - npm run test:single
